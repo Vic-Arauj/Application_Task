@@ -6,4 +6,9 @@ public partial class EditTaskPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void CloseModal(object sender, EventArgs e)
+    {
+
+    }
 }
