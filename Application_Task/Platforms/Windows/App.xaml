@@ -5,4 +5,13 @@
     xmlns:maui="using:Microsoft.Maui"
     xmlns:local="using:Application_Task.WinUI">
 
+    <maui:MauiWinUIApplication.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBox">
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+        </ResourceDictionary>
+    </maui:MauiWinUIApplication.Resources>
+    
 </maui:MauiWinUIApplication>
+    

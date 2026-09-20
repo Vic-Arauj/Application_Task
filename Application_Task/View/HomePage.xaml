@@ -6,10 +6,33 @@
     NavigationPage.HasNavigationBar="False">
 
     <Grid RowDefinitions="50, *">
-        <Entry
-            Margin="10,10,10,0"
-            Placeholder="Pesquisar..."
-            VerticalOptions="End" />
+
+        <Border
+            Margin="20,15,20,0"
+            BackgroundColor="Transparent"
+            HeightRequest="38"
+            StrokeShape="RoundRectangle 20"
+            StrokeThickness="0">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SerchBarHomePage" />
+            </Border.GestureRecognizers>
+
+            <Grid ColumnDefinitions="Auto, *">
+                <Image
+                    Grid.Column="0"
+                    Margin="2,0,5,0"
+                    HeightRequest="30"
+                    Source="find.png"
+                    WidthRequest="30" />
+                <Entry
+                    x:Name="Entry_search"
+                    Grid.Column="1"
+                    Placeholder="Pesquisar..."
+                    PlaceholderColor="Gray" />
+            </Grid>
+        </Border>
+
+
         <Label
             Grid.Row="1"
             HorizontalOptions="Center"
@@ -19,9 +42,9 @@
         <Button
             Grid.Row="1"
             Margin="20"
+            Clicked="Button_Clicked"
             HorizontalOptions="Center"
             Text="+    Adicionar Tarefa"
-            VerticalOptions="End"
-            Clicked="Button_Clicked"/>
+            VerticalOptions="End" />
     </Grid>
 </ContentPage>
