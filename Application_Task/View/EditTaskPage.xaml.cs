@@ -19,7 +19,7 @@ public partial class EditTaskPage : ContentPage
 
     private async void Addstep(object sender, EventArgs e)
     {
-        var stepName = await DisplayPromptAsync("Tarefas", "Digite o nome da Tarefa ou subtarefa", "Adicionar", "Cancelar");
+        await DisplayPromptAsync("Tarefas", "Digite o nome da Tarefa ou subtarefa", "Adicionar", "Cancelar");
     }
     protected override void OnSizeAllocated(double width, double height)
     {
