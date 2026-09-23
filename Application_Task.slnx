@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="Application_Task.Database.Migration.RunTime/Application_Task.Database.Migration.RunTime.csproj" Id="e48989d1-6532-4bf5-83c9-b6897c41ab02" />
+  <Project Path="Application_Task.Database/Application_Task.Database.csproj" Id="3202aadc-d62f-4fd5-a29d-f3393115d86d" />
   <Project Path="Application_Task.Models/Application_Task.Models.csproj" Id="61efc2d5-fb29-4511-bb5a-0c91781b17ed" />
   <Project Path="Application_Task/Application_Task.csproj">
     <Deploy Solution="Debug|*" />

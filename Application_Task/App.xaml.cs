@@ -1,4 +1,5 @@
-﻿using Application_Task.View;
+﻿using Application_Task.Database;
+using Application_Task.View;
 using Microsoft.Maui.Platform;
 
 namespace Application_Task
@@ -7,8 +8,8 @@ namespace Application_Task
     {
         public App()
         {
+            Application_TaskContext.Initialize();
             CustomHandler();
-
             InitializeComponent();
 
             MainPage = new NavigationPage(new HomePage());
