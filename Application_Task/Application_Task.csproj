@@ -73,6 +73,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Application_Task.Database\Application_Task.Database.csproj" />
+	  <ProjectReference Include="..\Application_Task.Models\Application_Task.Models.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
