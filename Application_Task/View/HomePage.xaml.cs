@@ -37,22 +37,29 @@ public partial class HomePage : ContentPage
     {
 		Entry_search.Focus();
     }
-    private async void OnTaptoDelete(object sender, EventArgs e)
+    private void OncheckedBox(object sender, TappedEventArgs e)
     {
-		if (sender is Button btn && btn.CommandParameter is TaskModel task)
-		{
-            bool res = await DisplayAlertAsync("Aviso", $"Gostaria de deletar essa tarefa? {task.Name}", "SIM", "NÃO");
+		var task = (TaskModel)e.Parameter;
 
-            if (res)
-            {
-                _repository.Delete(task);
-                LoadData();
-            }
-            else
-            {
-                return;
-            }
+		task.IsComplete = ((CheckBox)sender).IsChecked;
+		_repository.Update(task);
+
+    }
+    private async void OnTappedToDelete(object sender, TappedEventArgs e)
+    {
+        var task = (TaskModel)e.Parameter;
+
+        var res = await DisplayAlertAsync("Aviso!", $"Gostaria de prosseguir com essa ação? {task.Name}", "SIM", "NÃO");
+
+		if (res)
+		{
+            _repository.Delete(task);
+            LoadData();
         }
-		
+		else
+		{
+			return;
+		}
+       
     }
 }

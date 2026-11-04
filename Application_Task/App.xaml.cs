@@ -8,7 +8,6 @@ namespace Application_Task
     {
         public App()
         {
-            Application_TaskContext.Initialize();
             CustomHandler();
             InitializeComponent();
 

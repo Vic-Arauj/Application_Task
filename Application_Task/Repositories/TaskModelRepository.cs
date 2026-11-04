@@ -16,7 +16,7 @@ namespace Application_Task.Repositories
         }
         public IList<TaskModel> GetTaskModels()
         {
-           return _db.Tasks.OrderByDescending(a => a.TaskDate).ToList();
+           return _db.Tasks.AsNoTracking().OrderByDescending(a => a.TaskDate).ToList();
         }
         public TaskModel GetById(int id)
         {
@@ -29,19 +29,13 @@ namespace Application_Task.Repositories
         }
         public void Update(TaskModel task)
         {
-           _db.Tasks.Update(task);
+            _db.Tasks.Update(task);
             _db.SaveChanges();
         }
         public void Delete(TaskModel task)
         {
-            if (task == null) return;
-
-            var entity = GetById(task.Id);
-            if (entity != null)
-            {
-                _db.Tasks.Remove(entity);
-                _db.SaveChanges();
-            }
+            _db.Tasks.Remove(task);
+            _db.SaveChanges();
         }
 
       

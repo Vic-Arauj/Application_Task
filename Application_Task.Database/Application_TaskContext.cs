@@ -9,26 +9,25 @@ namespace Application_Task.Database
     public class Application_TaskContext : DbContext
     {
         public DbSet<TaskModel> Tasks { get; set; }
-        public DbSet<SubTaskModel> SubTask { get; set; }
+        public DbSet<SubTaskModel> SubTasks { get; set; }
 
-        public static void Initialize()
+        public Application_TaskContext()
         {
-            using (var context = new Application_TaskContext())
-            {
-                context.Database.Migrate();
-            }
+            Database.Migrate(); 
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+
+            var DatabasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ApplicationTask.db");
+            optionsBuilder.UseSqlite($"filename={DatabasePath}");
+
+            //optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 
             //var folderpath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             //var DatabaseName = "ApplicationTask.db";
             //var DatabasePath = Path.Combine(folderpath + DatabaseName);
-
-            var DatabasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ApplicationTask.db");
-            optionsBuilder.UseSqlite($"filename={DatabasePath}");
         }
     }
 }
